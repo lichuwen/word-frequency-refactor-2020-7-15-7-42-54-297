@@ -5,17 +5,22 @@ import java.util.Map;
 import java.util.StringJoiner;
 
 public class WordFrequencyGame {
+
+    public static final String SPACE_PATTERN = "\\s+";
+    public static final String LINE_CHANGE = "\n";
+    public static final String SPACE = " ";
+
     public String getResult(String sentence) {
 
 
-        if (sentence.split("\\s+").length==1) {
+        if (sentence.split(SPACE_PATTERN).length==1) {
             return sentence + " 1";
         } else {
 
             try {
 
 
-                String[] arr = sentence.split("\\s+");
+                String[] arr = sentence.split(SPACE_PATTERN);
 
                 List<WordInfo> inputList = new ArrayList<>();
                 for (String s : arr) {
@@ -35,9 +40,9 @@ public class WordFrequencyGame {
 
                 inputList.sort((w1, w2) -> w2.getWordCount() - w1.getWordCount());
 
-                StringJoiner joiner = new StringJoiner("\n");
+                StringJoiner joiner = new StringJoiner(LINE_CHANGE);
                 for (WordInfo w : inputList) {
-                    String s = w.getValue() + " " +w.getWordCount();
+                    String s = w.getValue() + SPACE +w.getWordCount();
                     joiner.add(s);
                 }
                 return joiner.toString();
