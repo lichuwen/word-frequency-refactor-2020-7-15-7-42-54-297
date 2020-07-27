@@ -22,14 +22,14 @@ public class WordFrequencyGame {
 
                 String[] wordInfos = sentence.split(SPACE_PATTERN);
 
-                List<WordInfo> inputList = new ArrayList<>();
+                List<WordInfo> wordInfoList = new ArrayList<>();
                 for (String word : wordInfos) {
                     WordInfo input = new WordInfo(word, 1);
-                    inputList.add(input);
+                    wordInfoList.add(input);
                 }
 
 
-                Map<String, List<WordInfo>> map =getListMap(inputList);
+                Map<String, List<WordInfo>> map =getListMap(wordInfoList);
 
                 List<WordInfo> list = new ArrayList<>();
                 for (Map.Entry<String, List<WordInfo>> entry : map.entrySet()) {
