@@ -3,9 +3,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
-import java.io.CharArrayWriter;
-
-import java.time.LocalDateTime;
 
 public class WordFrequencyGame {
     public String getResult(String sentence) {
@@ -17,7 +14,7 @@ public class WordFrequencyGame {
 
             try {
 
-                //split the input string with 1 to n pieces of spaces
+
                 String[] arr = sentence.split("\\s+");
 
                 List<WordInfo> inputList = new ArrayList<>();
@@ -26,7 +23,7 @@ public class WordFrequencyGame {
                     inputList.add(input);
                 }
 
-                //get the map for the next step of sizing the same word
+
                 Map<String, List<WordInfo>> map =getListMap(inputList);
 
                 List<WordInfo> list = new ArrayList<>();
@@ -53,7 +50,7 @@ public class WordFrequencyGame {
     private Map<String, List<WordInfo>> getListMap(List<WordInfo> inputList) {
         Map<String, List<WordInfo>> map = new HashMap<>();
         for (WordInfo input : inputList){
-//       map.computeIfAbsent(input.getValue(), k -> new ArrayList<>()).add(input);
+
             if (!map.containsKey(input.getValue())) {
                 ArrayList arr = new ArrayList<>();
                 arr.add(input);
